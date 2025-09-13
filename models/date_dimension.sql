@@ -7,7 +7,7 @@ WITH DATE_CTE AS (
         DAYNAME(TO_TIMESTAMP(STARTED_AT)) AS DAYNAME_STARTED_AT,
         {{DAY_TYPE('STARTED_AT')}} AS DAY_TYPE_STARTED_DT,
         {{ GET_SEASON('STARTED_AT') }} AS STATION_OF_YEAR
-    FROM {{ source('DEMO', 'BIKE') }}
+    FROM {{ ref('stg_bike') }}
 )
 SELECT 
 *
